@@ -1,4 +1,8 @@
 <script setup>
+import { defineProps } from 'vue';
+import { ref } from 'vue';
+import ProfileImage from './ProfileImage.vue';
+
 const props = defineProps({
   tweet: Object,
 });
@@ -6,8 +10,7 @@ const props = defineProps({
 
 <template>
   <div class="tweet">
-    <!-- Dynamic profile image -->
-    <img :src="tweet.user.image" class="profile" alt="profile" />
+    <ProfileImage :image="tweet.user.image"/>
   
     <div class="body">
       <div class="top">
