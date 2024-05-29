@@ -1,7 +1,8 @@
 <script setup>
-import { defineProps } from 'vue';
-import { ref } from 'vue';
-import ProfileImage from './ProfileImage.vue';
+import { defineProps } from "vue";
+import { ref } from "vue";
+import ProfileImage from "./ProfileImage.vue";
+import User from "./User.vue";
 
 const props = defineProps({
   tweet: Object,
@@ -10,20 +11,17 @@ const props = defineProps({
 
 <template>
   <div class="tweet">
-    <ProfileImage :image="tweet.user.image"/>
-  
+    <ProfileImage :image="tweet.user.image" />
+
     <div class="body">
       <div class="top">
-        <span class="user">
-          <span class="name">{{ tweet.user.name }}</span>
-          <span class="handle">@{{ tweet.user.handle }}</span>
-        </span>
-  
+        <User :userData="tweet.user" />
+
         <span class="timestamp">{{ tweet.timestamp }}</span>
       </div>
-  
+
       <p class="message">{{ tweet.message }}</p>
-  
+
       <div class="actions">
         <i class="far fa-comment"></i>
         <i class="fas fa-retweet"></i>
@@ -31,10 +29,10 @@ const props = defineProps({
         <i class="fas fa-share"></i>
       </div>
     </div>
-  
+
     <i class="fas fa-ellipsis-h"></i>
   </div>
-  </template>
+</template>
 
 <style scoped>
 a {
