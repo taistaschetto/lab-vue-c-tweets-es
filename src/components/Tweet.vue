@@ -4,6 +4,8 @@ import { ref } from "vue";
 import ProfileImage from "./ProfileImage.vue";
 import User from "./User.vue";
 import Timestamp from "./Timestamp.vue";
+import Message from "./Message.vue";
+import Actions from "./Actions.vue";
 
 const props = defineProps({
   tweet: Object,
@@ -18,17 +20,11 @@ const props = defineProps({
       <div class="top">
         <User :userData="tweet.user" />
 
-        <Timestamp :time="tweet.timestamp"/>
+        <Timestamp :time="tweet.timestamp" />
       </div>
 
-      <p class="message">{{ tweet.message }}</p>
-
-      <div class="actions">
-        <i class="far fa-comment"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="far fa-heart"></i>
-        <i class="fas fa-share"></i>
-      </div>
+      <Message :message="tweet.message" />
+      <Actions />
     </div>
 
     <i class="fas fa-ellipsis-h"></i>
